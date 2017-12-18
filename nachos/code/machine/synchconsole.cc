@@ -24,10 +24,8 @@ SynchConsole::~SynchConsole()
 
 void SynchConsole::SynchPutChar(const char ch)
 {
-	writeDone->P ();
 	console->PutChar (ch);
-	readAvail->V ();
-    writeDone->P ();
+	writeDone->P ();
 }
 
 char SynchConsole::SynchGetChar()
