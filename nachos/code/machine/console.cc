@@ -16,6 +16,7 @@
 #include "copyright.h"
 #include "console.h"
 #include "system.h"
+#include "synchconsole.h"
 
 // Dummy functions because C++ is weird about pointers to member functions
 static void ConsoleReadPoll(int c) 
