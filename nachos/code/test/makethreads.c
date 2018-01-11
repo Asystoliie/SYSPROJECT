@@ -2,11 +2,16 @@
 
 void print(int i) {
     if (i %2)
+{
+
         SynchPutString("And I'm Steven\n");
 //          SynchPutChar('A');
+}
 else
+{
         SynchPutString("I'm Even\n");
           //SynchPutChar('B');
+}
         UserThreadExit();
 }
 int main() {

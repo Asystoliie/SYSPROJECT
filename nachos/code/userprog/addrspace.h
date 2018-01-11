@@ -33,13 +33,13 @@ class AddrSpace
     void SaveState ();		// Save/restore address space-specific
     void RestoreState ();	// info on a context switch
 
-    int liveThreads; // number of currently running threads
+    /*int liveThreads; // number of currently running threads
 
     Semaphore *semLiveThreads; // protect the use of liveThreads
 
     void UpdateThreadCount(int i);
 
-    int GetThreadCount();
+    int GetThreadCount();*/
 
   private:
       TranslationEntry * pageTable;	// Assume linear page table translation
