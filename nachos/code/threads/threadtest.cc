@@ -1,12 +1,12 @@
-// threadtest.cc 
+// threadtest.cc
 //      Simple test case for the threads assignment.
 //
 //      Create two threads, and have them context switch
-//      back and forth between themselves by calling Thread::Yield, 
+//      back and forth between themselves by calling Thread::Yield,
 //      to illustratethe inner workings of the thread system.
 //
 // Copyright (c) 1992-1993 The Regents of the University of California.
-// All rights reserved.  See copyright.h for copyright notice and limitation 
+// All rights reserved.  See copyright.h for copyright notice and limitation
 // of liability and disclaimer of warranty provisions.
 
 #include "copyright.h"
@@ -14,7 +14,7 @@
 
 //----------------------------------------------------------------------
 // SimpleThread
-//      Loop 5 times, yielding the CPU to another ready thread 
+//      Loop 5 times, yielding the CPU to another ready thread
 //      each iteration.
 //
 //      "which" is simply a number identifying the thread, for debugging
@@ -29,13 +29,13 @@ SimpleThread (int which)
     for (num = 0; num < 5; num++)
       {
 	  printf ("*** thread %d looped %d times\n", which, num);
-	  currentThread->Yield ();
+	  //currentThread->Yield ();
       }
 }
 
 //----------------------------------------------------------------------
 // ThreadTest
-//      Set up a ping-pong between two threads, by forking a thread 
+//      Set up a ping-pong between two threads, by forking a thread
 //      to call SimpleThread, and then calling SimpleThread ourselves.
 //----------------------------------------------------------------------
 
@@ -45,7 +45,11 @@ ThreadTest ()
     DEBUG ('t', "Entering SimpleTest\n");
 
     Thread *t = new Thread ("forked thread");
+    Thread *at = new Thread ("forked thread");
 
     t->Fork (SimpleThread, 1);
+
+    at->Fork (SimpleThread, 2);
+
     SimpleThread (0);
 }
